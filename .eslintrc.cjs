@@ -1,4 +1,9 @@
 module.exports = {
+  "exclude": [
+    "node_modules/**",
+    "dist/**",
+    "public/**"
+  ],
   env: {
     browser: true,
     es2022: true,
