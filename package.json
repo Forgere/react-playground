@@ -47,11 +47,13 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "report": "tsc && vite build",
-    "prepublish": "npm run docs && npm run build && npm publish"
+    "prepublish": "npm run docs && npm run build && npm publish",
+    "build-fiber": "esbuild src/Fiber/index.ts --outfile=public/fiber.js --bundle --format=esm"
   },
   "dependencies": {
     "@babel/standalone": "^7.23.1",
     "@monaco-editor/react": "^4.5.2",
+    "@react-three/fiber": "^8.16.0",
     "@typescript/ata": "^0.9.4",
     "allotment": "^1.19.3",
     "classnames": "^2.3.2",
@@ -62,7 +64,8 @@
     "monaco-jsx-syntax-highlight": "^1.2.0",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "three": "^0.162.0"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
@@ -74,9 +77,12 @@
     "@types/node": "^20.8.10",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "@types/three": "^0.162.0",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "esbuild": "^0.20.2",
+    "esbuild-plugin-umd-wrapper": "^2.0.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.1.0",
@@ -108,9 +114,6 @@
     "vite-plugin-css-injected-by-js": "^3.3.0"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings 0"
-    ],
     "src/**/*.{css,less,scss}": [
       "stylelint --max-warnings 0"
     ]
