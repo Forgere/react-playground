@@ -35,6 +35,7 @@ const ReactPlayground = (props: IPlayground) => {
     onFilesChange,
     autorun = true,
   } = props
+  console.log('importMap', importMap, propsFiles)
   const { filesHash, changeTheme, files, setFiles, setSelectedFileName } =
     useContext(PlaygroundContext)
   const options = Object.assign(defaultCodeSandboxOptions, props.options || {})
